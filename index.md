@@ -134,7 +134,7 @@ En este caso, el perceptrón multicapa se construyó con la siguiente arquitectu
 
 Para realizar la predicción del año 2017, se entrenó el modelo con los datos del periodo desde el 1 enero de 2012 hasta el 31 de diciembre de 2016.
 
-A continuación, se presentan los resultados obtenidos al predecir el año 2017. En la figura 7 muestra en color azul la predicción hecha por el modelo, y en negro, los datos reales; visualmente, la predicción parece ser relativamente buena, sin embargo, no logra capturar completamente bien los altos picos presentados desde la segunda mitad del año, ya que aunque estos se presentaron en cierta medida el año anterior (2016), estos no fueron tan altos como los del 2017, estos picos **podrían** deberse a un fenómeno de las series de tiempo llamado ***variación irregular***, este fenómeno se trata de una variación aleatoria y, por tanto, impredecible.
+A continuación, se presentan los resultados obtenidos al predecir el año 2017. En la figura 9 muestra en color azul la predicción hecha por el modelo, y en negro, los datos reales; visualmente, la predicción parece ser relativamente buena, sin embargo, no logra capturar completamente bien los altos picos presentados desde la segunda mitad del año, ya que aunque estos se presentaron en cierta medida el año anterior (2016), estos no fueron tan altos como los del 2017, estos picos **podrían** deberse a un fenómeno de las series de tiempo llamado ***variación irregular***, este fenómeno se trata de una variación aleatoria y, por tanto, impredecible.
 
 
 ![image](/images/figura9.png)
@@ -146,13 +146,13 @@ A continuación, se presentan los resultados obtenidos al predecir el año 2017.
 
 Para evaluar la predicción del modelo, se utilizaron las siguientes métricas:
 
-- **RMSE**: el RMSE se calcula de acuerdo a la figura 9. Para esta métrica se obtuvo un valor de aproximadamente **219**, esto quiere decir que en promedio las predicciones se alejan del dato real en 219 unidades.
+- **RMSE**: el RMSE se calcula de acuerdo a la figura 10. Para esta métrica se obtuvo un valor de aproximadamente **220**, esto quiere decir que en promedio las predicciones se alejan del dato real en 220 unidades.
 
 ![image](/images/figura10.png)
 
 **Figura 10**. Fórmula para calcular la raíz del error cuadrático medio (RMSE).
 
-- **R-cuadrado**: El coeficiente de determinación (R cuadrado) se calcula de acuerdo a la figura 10. Para esta métrica se obtuvo un valor de **83 %**, esto quiere decir que el 83 % de la variabilidad en los datos es explicada por la relación entre las variables predictoras y las Unidades de vehículos.
+- **R-cuadrado**: El coeficiente de determinación (R cuadrado) se calcula de acuerdo a la figura 11. Para esta métrica se obtuvo un valor de **83 %**, esto quiere decir que el 83 % de la variabilidad en los datos es explicada por la relación entre las variables predictoras y las Unidades de vehículos.
 
 ![image](/images/figura11.png)
 
@@ -166,7 +166,7 @@ Para evaluar la predicción del modelo, se utilizaron las siguientes métricas:
 
 ### Predicción del 2018
 
-Para predecir el 2018 se entrenó un modelo con los datos desde el 2012 hasta el 2017, es decir, todo el conjunto de datos. En la figura 11 se muestra en azul la predicción y en color negro, los datos originales.
+Para predecir el 2018 se entrenó un modelo con los datos desde el 2012 hasta el 2017, es decir, todo el conjunto de datos. En la figura 12 se muestra en azul la predicción y en color negro, los datos originales.
 
 ![image](/images/figura12.png)
 
@@ -180,21 +180,21 @@ Al realizar una inspección visual, podemos notar que históricamente, se presen
 
 ### Predicción del periodo 2012 hasta 2016
 
-Para la predicción de este periodo se utiliza el mismo modelo utilizado para la predicción del año 2017, es decir, se procede a predecir el conjunto de entrenamiento. En la figura 14 se puede observa la gráfica de la predicción, donde los datos predichos están en azul; y los datos reales, en negro. Veamos que visualmente hay un relativo buen ajuste.
+Para la predicción de este periodo se utiliza el mismo modelo utilizado para la predicción del año 2017, es decir, se procede a predecir el conjunto de entrenamiento. En la figura 14 se puede observar la gráfica de la predicción, donde los datos predichos están en azul; y los datos reales, en negro. Veamos que visualmente hay un relativo buen ajuste.
 
 ![image](/images/figura12.png)
 
-**Figura 12**. Predicción del periodo entre los años 2012 y 2016. En azul se muestra la predicción, y en negro, los datos originales.
+**Figura 14**. Predicción del periodo entre los años 2012 y 2016. En azul se muestra la predicción, y en negro, los datos originales.
 
 **Métricas**
 
 - **RMSE**: Para esta métrica se obtuvo un valor de aproximadamente **250**, esto quiere decir que en promedio las predicciones se alejan del dato real en 429 unidades.
 
-- **R-cuadrado**: Para esta métrica se obtuvo un valor de **79 %**, esto quiere decir que el 40 % de la variabilidad en los datos es explicada por la relación entre el tiempo y las unidades de vehículos.
+- **R-cuadrado**: Para esta métrica se obtuvo un valor de **79 %**, esto quiere decir que el 79 % de la variabilidad en los datos es explicada por la relación entre las variables predictoras y las unidades de vehículos.
 
 ## **Conclusiones**
 
-Durante este informe se presentó una serie de tiempo univariada; los datos históricos de esta serie permitieron crear nuevas variables predictoras derivadas a partir de un análisis de tendencias y comportamientos presentes en los datos; estas nuevas variables permitieron entrenar y ajustar un modelo para predecir diferentes periodos. De estas predicciones, se mostró que era posible alcanzar coeficientes de determinación (R-cuadrado) entre 79 % y 88 % que, del cual podemos decir que es relativamente alto, sin embargo, las variaciones aleatorias de los datos e incluso imprecisiones en la formulación del modelo pudieron haber afectado la precisión de este.
+Durante este informe se presentó una serie de tiempo univariada; los datos históricos de esta serie permitieron crear nuevas variables predictoras derivadas a partir de un análisis de tendencias y comportamientos presentes en los datos; estas nuevas variables permitieron entrenar y ajustar un modelo para predecir diferentes periodos. De estas predicciones, se mostró que era posible alcanzar coeficientes de determinación (R-cuadrado) entre 79 % y 88 %, del cual podemos decir que es relativamente alto, sin embargo, las variaciones aleatorias de los datos e incluso imprecisiones en la formulación del modelo pudieron haber afectado la precisión de este.
 
 ## **Referencias**
 
@@ -206,11 +206,6 @@ Durante este informe se presentó una serie de tiempo univariada; los datos hist
 
 [4] Colaboradores de los proyectos Wikimedia. “Perceptrón multicapa - Wikipedia, la enciclopedia libre”. Wikipedia, la enciclopedia libre. https://es.wikipedia.org/wiki/Perceptrón_multicapa (accedido el 7 de agosto de 2021).
 
-[4] Colaboradores de los proyectos Wikimedia. "Análisis de la regresión - Wikipedia, la enciclopedia libre". Wikipedia, la enciclopedia libre. https://es.wikipedia.org/wiki/Análisis_de_la_regresión (accedido el 31 de agosto de 2021).
-
-[5] T. Hastie, R. Tibshirani y J. Friedman, *The Elements of Statistical Learning Data Mining, Inference, and Prediction*, 2a ed. New York: Springer, 2001.
-
-[6] "Introduction to darts". GitHub. https://github.com/unit8co/darts/blob/master/examples/01-darts-intro.ipynb (accedido el 31 de agosto de 2021).
 
 
 
