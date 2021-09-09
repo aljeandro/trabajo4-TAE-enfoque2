@@ -91,7 +91,7 @@ A partir de la variable Fecha se crearon las siguientes variables derivadas:
 
 - **is_holiday**: si la fecha correspondiente es un día festivo en Colombia, esta variable toma el valor de 1, de lo contrario toma el valor 0. Esta variable se toma con el fin de indicarle al modelo que en estos días en específico no suelen haber inscripciones de vehículos.
 
-- **day_of_week**: Esta variable indica el día de la semana, en la cual el 0 es el lunes; el 1, martes; el 2, miércoles; el 3, jueves; el 4, viernes; el 5, sábado; y el 6, domingo. Esto se realiza con el fin de indicarle al modelo que los días sábado y domingo las inscripciones de vehículos suelen se bastante menores en relación con lo demás días de la semana (ver figura ).
+- **day_of_week**: Esta variable indica el día de la semana, en la cual el 0 es el lunes; el 1, martes; el 2, miércoles; el 3, jueves; el 4, viernes; el 5, sábado; y el 6, domingo. Esto se realiza con el fin de indicarle al modelo que los días sábado y domingo las inscripciones de vehículos suelen ser bastante menores en relación con lo demás días de la semana (ver figura ).
 
 - **day_of_month**: corresponde al día del mes de la fecha correspondiente. Esta variable se toma con el fin de indicarle al modelo que los primeros días del mes, por ejemplo, se inscriben menos vehículos en promedio (ver figura 6).
 
