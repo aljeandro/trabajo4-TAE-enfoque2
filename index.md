@@ -126,7 +126,7 @@ En este caso, el perceptrón multicapa se construyó con la siguiente arquitectu
 
 - **Capa de salida**: Dado que solamente tenemos una variable respuesta (Unidades), únicamente se tiene una neurona de salida.
 
-- **Postprocesado**: dado que algunos valores predichos por la red neuronal llegan a ser levemente menores a cero, estos deben ser llevados a cero, es decir, si un valor predicho por la red neuronal es menor a cero, este es cambiado por el valor cero. Esto se realiza ya que los valores negativos para el contexto de la variable respuesta no tienen sentido. 
+**Postprocesado**: dado que algunos valores predichos por la red neuronal llegan a ser levemente menores a cero, estos deben ser llevados a cero, es decir, si un valor predicho por la red neuronal es menor a cero, este es cambiado por el valor cero. Esto se realiza ya que los valores negativos para el contexto de la variable respuesta no tienen sentido. 
 
 ## **Resultados**
 
