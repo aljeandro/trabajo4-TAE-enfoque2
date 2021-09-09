@@ -64,10 +64,12 @@ De acuerdo con James, Witten, Hastie y Tibshirani [3, p.427], en una serie de ti
 **Figura 3**. Función de autocorrelación donde el eje x representa el número de días de retraso (lags), y el eje *y*, el coeficiente de correlación; los picos corresponden a los días 1, 7, 14, 21 y 27, respectivamente.
 
 ![image](/images/figura4.png)
+
 **Figura 4**. Inscripción de vehículos por día del mes
 
 
 ![image](/images/figura5.png)
+
 **Figura 5**. Inscripción de vehículos por día de la semana, donde 0 es el lunes; el 1, martes; el 2, miércoles; el 3, jueves; el 4, viernes; el 5, sábado; y el 6, domingo.
 
 
