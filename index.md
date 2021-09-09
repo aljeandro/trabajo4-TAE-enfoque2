@@ -116,7 +116,7 @@ El perceptron multicapa tiene 3 tipos de capas:
 
 ![image](/images/RedNeuronalArtificial.png)
 
-Figura 8. Perceptrón Multicapa [4].
+**Figura 8**. Perceptrón Multicapa [4].
 
 En este caso, el perceptrón multicapa se construyó con la siguiente arquitectura:
 
