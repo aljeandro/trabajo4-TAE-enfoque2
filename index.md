@@ -102,21 +102,21 @@ A partir de la variable Fecha se crearon las siguientes variables derivadas:
 
 ## **Modelo de predicción**
 
-El perceptrón multicapa es una red neuronal artificial formada por múltiples capas, de tal manera que tiene la capacidad para resolver problemas que no son linealmente separables [3].
+El perceptrón multicapa es una red neuronal artificial formada por múltiples capas, de tal manera que tiene la capacidad para resolver problemas que no son linealmente separables [4].
 
-En esta red cada neurona (excepto las de entrada) realiza calculos con las entradas que recibió de la capa de neuronas anterior a ella, dichos calculos incluye la aplicación de una función de activación, que en este caso es la función *relu*; posteriormente, el resultado de una neurona es enviado a la siguiente capa en la cual se repite el mismo procedimiento hasta llegar a la capa de salida donde se realizan los últimos calculos para finalmente entregar la predicción. La arquitectura del Perceptrón Multicapa (ver figura 2) le permite aprender los diferentes patrones que hay en las imágenes.
+En esta red cada neurona (excepto las de entrada) realiza calculos con las entradas que recibió de la capa de neuronas anterior a ella, dichos calculos incluye la aplicación de una función de activación, que en este caso es la función *relu*; posteriormente, el resultado de una neurona es enviado a la siguiente capa en la cual se repite el mismo procedimiento hasta llegar a la capa de salida donde se realizan los últimos calculos para finalmente entregar la predicción. La arquitectura del Perceptrón Multicapa (ver figura 8) le permite aprender los diferentes patrones que hay en las imágenes.
 
 El perceptron multicapa tiene 3 tipos de capas:
 
-- Capa de entrada: Constituida por aquellas neuronas que introducen los patrones de entrada en la red. En estas neuronas no se produce procesamiento [3].
+- Capa de entrada: Constituida por aquellas neuronas que introducen los patrones de entrada en la red. En estas neuronas no se produce procesamiento [4].
 
-- Capas ocultas: Formada por aquellas neuronas cuyas entradas provienen de capas anteriores y cuyas salidas pasan a neuronas de capas posteriores [3].
+- Capas ocultas: Formada por aquellas neuronas cuyas entradas provienen de capas anteriores y cuyas salidas pasan a neuronas de capas posteriores [4].
 
-- Capa de salida: Neuronas cuyos valores de salida se corresponden con las salidas de toda la red [3].
+- Capa de salida: Neuronas cuyos valores de salida se corresponden con las salidas de toda la red [4].
 
 ![image](/images/RedNeuronalArtificial.png)
 
-Figura 8. Perceptrón Multicapa [3].
+Figura 8. Perceptrón Multicapa [4].
 
 En este caso, el perceptrón multicapa se construyó con la siguiente arquitectura:
 
@@ -203,6 +203,8 @@ Durante este informe se presentó una serie de tiempo univariada; los datos hist
 [2] Departamento de Matemáticas. http://www.estadistica.mat.uson.mx/Material/seriesdetiempo.pdf (accedido el 28 de agosto de 2021).
 
 [3] G. James, D. Witten, T. Hastie y R. Tibshirani, *An Introduction to Statistical Learning With Applications in R*, 2a ed. New York, NY: Springer, 2021.
+
+[4] Colaboradores de los proyectos Wikimedia. “Perceptrón multicapa - Wikipedia, la enciclopedia libre”. Wikipedia, la enciclopedia libre. https://es.wikipedia.org/wiki/Perceptrón_multicapa (accedido el 7 de agosto de 2021).
 
 [4] Colaboradores de los proyectos Wikimedia. "Análisis de la regresión - Wikipedia, la enciclopedia libre". Wikipedia, la enciclopedia libre. https://es.wikipedia.org/wiki/Análisis_de_la_regresión (accedido el 31 de agosto de 2021).
 
