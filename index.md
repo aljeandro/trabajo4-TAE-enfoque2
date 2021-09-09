@@ -188,7 +188,7 @@ Para la predicción de este periodo se utiliza el mismo modelo utilizado para la
 
 **Métricas**
 
-- **RMSE**: Para esta métrica se obtuvo un valor de aproximadamente **250**, esto quiere decir que en promedio las predicciones se alejan del dato real en 429 unidades.
+- **RMSE**: Para esta métrica se obtuvo un valor de aproximadamente **250**, esto quiere decir que en promedio las predicciones se alejan del dato real en 250 unidades.
 
 - **R-cuadrado**: Para esta métrica se obtuvo un valor de **79 %**, esto quiere decir que el 79 % de la variabilidad en los datos es explicada por la relación entre las variables predictoras y las unidades de vehículos.
 
