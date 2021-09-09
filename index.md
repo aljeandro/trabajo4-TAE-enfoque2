@@ -31,21 +31,6 @@ El conjunto de datos contiene 2192 registros de la cantidad de vehículos regist
 
 Una **serie de tiempo** son datos estadísticos que se recopilan, observan o registran en intervalos de tiempo regulares (diario, semanal, semestral, anual, entre otros) [2]. A partir de esta definición podemos decir que nuestro conjunto de datos es una serie de tiempo.
 
-**Creación de Variables Predictoras Derivadas**
-
-A partir de la variable Fecha se crearon las siguientes variables derivadas:
-
-- **Is_LBDM**: si la fecha correspondiente es el último día hábil del mes (día más cercano a final de mes que no es sábado o domingo), esta variable toma el valor de 1, de lo contrario toma el valor 0.
-
-- **is_holiday**: si la fecha correspondiente es un día festivo en Colombia, esta variable toma el valor de 1, de lo contrario toma el valor 0.
-
-- **day_of_week**: Esta variable indica el día de la semana, en la cual el 0 es el lunes; el 1, martes; el 2, miércoles; el 3, jueves; el 4, viernes; el 5, sábado; y el 6, domingo.
-
-- **day_of_month**: corresponde al día del mes de la fecha correspondiente.
-
-- **month_of_year**: Corresponde al mes del año de la fecha correspondiente.
-- **timestamp**: corresponde al número de segundos que han pasado desde el 1 de enero de 1970 a la media noche. Esta variable se crea con el fin de conservar el orden cronológico natural de las fechas.
-
 **Número de vehículos inscritos por año**
 
 - Año 2012: En el 2012 se inscribieron en total **311920** vehículos.
@@ -72,7 +57,7 @@ Con el fin de tener un mejor entendimiento de cómo es el comportamiento de esta
 ![image](/images/figura2.png)
 **Figura 2**.  Comportamiento de la variable Unidades en el tiempo de manera mensual.
 
-De acuerdo con James, Witten, Hastie y Tibshirani [3, p.427], en una serie de tiempo no se puede suponer que las observaciones son independientes entre sí, más aún, los valores cercanos en el tiempo tienden a tener una autocorrelación similar entre sí. Para ser claros, se puede considerar los pares de observaciones (Ut, Ut-l), un retraso de l días (o meses). Si tomamos todos esos pares en la serie de Ut y calculamos su coeficiente de correlación, esto da la autocorrelación en el rezago l (también llamado lag l). La figura 3 muestra la función de autocorrelación para todos los rezagos (en días) hasta 31. A partir de esta, se observa una correlación considerable con 27, 21, 14, 7, 1 días de retraso, esto nos sugiere que para cada una de estas cantidades de días existe una tendencia estacional, siendo la más fuerte la de 27 días; es decir, cada 27 días la cantidad de vehículos inscritos en el RUNT tiene una intensidad relativamente similar; esta variación estacional en específico se puede estar presentado, en parte, porque las personas suelen inscribir más vehículos en el último día hábil del mes, dando como resultado que los últimos días del mes, en general, es cuando más se inscriben vehículos (ver figura 4).
+De acuerdo con James, Witten, Hastie y Tibshirani [3, p.427], en una serie de tiempo no se puede suponer que las observaciones son independientes entre sí, más aún, los valores cercanos en el tiempo tienden a tener una autocorrelación similar entre sí. Para ser claros, se puede considerar los pares de observaciones (Ut, Ut-l), un retraso de l días (o meses). Si tomamos todos esos pares en la serie de Ut y calculamos su coeficiente de correlación, esto da la autocorrelación en el rezago l (también llamado lag l). La figura 3 muestra la función de autocorrelación para todos los rezagos (en días) hasta 31. A partir de esta, se observa una correlación considerable con 27, 21, 14, 7, 1 días de retraso, esto nos sugiere que para cada una de estas cantidades de días existe una tendencia estacional, siendo la más fuerte la de 27 días; es decir, cada 27 días la cantidad de vehículos inscritos en el RUNT tiene una intensidad relativamente similar; esta variación estacional en específico se puede estar presentado, en parte, porque las personas suelen inscribir más vehículos en el último día hábil del mes, dando como resultado que los últimos días del mes, en general, es cuando más se inscriben vehículos (ver figura 4). Por otro lado, la variación estacional presentada cada 7 días se puede estar presentando, en parte, porque los sábados y domingos suelen haber muchas menos inscripciones que los demás días de la semana (ver figura 5).
 
 ![image](/images/figura3.png)
 
@@ -81,11 +66,34 @@ De acuerdo con James, Witten, Hastie y Tibshirani [3, p.427], en una serie de ti
 ![image](/images/figura4.png)
 Inscripción de vehículos por día del mes
 
-El anterior ejercicio también puede ser llevado a cabo tomando las unidades de vehículos inscritas de manera mensual; la figura 4 muestra la función de autocorrelación si se toma este enfoque. En esta se puede observar una clara tendencia estacional anual (línea fucsia), lo cual ratifica lo observado en la figura 2. En otras palabras, cada 12 meses la cantidad de vehículos inscritos en el RUNT tiene una intensidad relativamente similar, y este comportamiento se hace más evidente en el mes de diciembre.
-
 
 ![image](/images/figura5.png)
+Inscripción de vehículos por día de la semana, donde 0 es el lunes; el 1, martes; el 2, miércoles; el 3, jueves; el 4, viernes; el 5, sábado; y el 6, domingo.
+
+
+El anterior ejercicio también puede ser llevado a cabo tomando las unidades de vehículos inscritas de manera mensual; la figura 6 muestra la función de autocorrelación si se toma este enfoque. En esta se puede observar una clara tendencia estacional anual (línea fucsia), lo cual ratifica lo observado en la figura 2. En otras palabras, cada 12 meses la cantidad de vehículos inscritos en el RUNT tiene una intensidad relativamente similar, y este comportamiento se hace más evidente en el mes de diciembre, ya que en este mes es donde se realizan la mayor cantidad de inscripciones de vehículos (ver figura 7).
+
+
+![image](/images/figura6.png)
 **Figura 4**. Función de autocorrelación donde el eje x representa el número de meses de retraso (lags), y el eje *y*, el coeficiente de correlación; el pico en fucsia representa el coeficiente de correlación para un retraso de 12 meses.
+
+![image](/images/figura7.png)
+
+**Creación de Variables Predictoras Derivadas**
+
+A partir de la variable Fecha se crearon las siguientes variables derivadas:
+
+- **Is_LBDM**: si la fecha correspondiente es el último día hábil del mes (día más cercano a final de mes que no es sábado o domingo), esta variable toma el valor de 1, de lo contrario toma el valor 0. Se toma esta variable con el fin de indicarle al modelo que en estos días en específico se suelen hacer más inscripciones de vehículos tal como se evidenció en la figura 4.
+
+- **is_holiday**: si la fecha correspondiente es un día festivo en Colombia, esta variable toma el valor de 1, de lo contrario toma el valor 0. Esta variable se toma con el fin de indicarle al modelo que en estos días en específico no suelen haber inscripciones de vehículos.
+
+- **day_of_week**: Esta variable indica el día de la semana, en la cual el 0 es el lunes; el 1, martes; el 2, miércoles; el 3, jueves; el 4, viernes; el 5, sábado; y el 6, domingo. Esto se realiza con el fin de indicarle al modelo que los días sábado y domingo las inscripciones de vehículos suelen se bastante menores en relación con lo demás días de la semana (ver figura ).
+
+- **day_of_month**: corresponde al día del mes de la fecha correspondiente. Esta variable se toma con el fin de indicarle al modelo que los primeros días del mes, por ejemplo, se inscriben menos vehículos (ver figura 6).
+
+- **month_of_year**: Corresponde al mes del año de la fecha correspondiente.
+- **timestamp**: corresponde al número de segundos que han pasado desde el 1 de enero de 1970 a la media noche. Esta variable se crea con el fin de conservar el orden cronológico natural de las fechas.
+
 
 ## **Modelo de predicción**
 
