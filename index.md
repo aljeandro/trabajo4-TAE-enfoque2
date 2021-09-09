@@ -95,7 +95,7 @@ A partir de la variable Fecha se crearon las siguientes variables derivadas:
 
 - **day_of_month**: corresponde al día del mes de la fecha correspondiente. Esta variable se toma con el fin de indicarle al modelo que los primeros días del mes, por ejemplo, se inscriben menos vehículos con relación a los demás días del mes, y que lo contrario ocurre con los últimos días del mes (ver figura 4).
 
-- **month_of_year**: Corresponde al mes del año de la fecha correspondiente. Esta variable se toma con el fin de indicarle al modelo que en el último mes del año se suelen realizar más inscripciones de vehículos en relación con los demás meses, y que en el mes de enero se suelen inscribir menos vehículos en relación con los demás meses. 
+- **month_of_year**: Corresponde al mes del año de la fecha correspondiente. Esta variable se toma con el fin de indicarle al modelo que en el último mes del año, por ejemplo, se suelen realizar más inscripciones de vehículos en relación con los demás meses, y que en el mes de enero se suelen inscribir menos vehículos en relación con los demás meses. 
 
 - **timestamp**: corresponde al número de segundos que han pasado desde el 1 de enero de 1970 a la media noche. Esta variable se crea con el fin de conservar el orden cronológico natural de las fechas, lo cual le permite al modelo capturar la tendencia que se viene marcando históricamente a partir de los datos de entrenamiento.
 
