@@ -93,7 +93,7 @@ A partir de la variable Fecha se crearon las siguientes variables derivadas:
 
 - **day_of_week**: Esta variable indica el día de la semana, en la cual el 0 es el lunes; el 1, martes; el 2, miércoles; el 3, jueves; el 4, viernes; el 5, sábado; y el 6, domingo. Esto se realiza con el fin de indicarle al modelo que los días sábado y domingo las inscripciones de vehículos suelen ser bastante menores en relación con lo demás días de la semana (ver figura 5).
 
-- **day_of_month**: corresponde al día del mes de la fecha correspondiente. Esta variable se toma con el fin de indicarle al modelo que los primeros días del mes, por ejemplo, se inscriben menos vehículos en promedio (ver figura 6).
+- **day_of_month**: corresponde al día del mes de la fecha correspondiente. Esta variable se toma con el fin de indicarle al modelo que los primeros días del mes, por ejemplo, se inscriben menos vehículos con relación a los demás días del mes, y que lo contrario ocurre con los últimos días del mes (ver figura 4).
 
 - **month_of_year**: Corresponde al mes del año de la fecha correspondiente. Esta variable se toma con el fin de indicarle al modelo que en el último mes del año se suelen realizar más inscripciones de vehículos en relación con los demás meses, y que en el mes de enero se suelen inscribir menos vehículos en relación con los demás meses. 
 
