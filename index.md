@@ -182,7 +182,7 @@ Al realizar una inspección visual, podemos notar que históricamente, se presen
 
 Para la predicción de este periodo se utiliza el mismo modelo utilizado para la predicción del año 2017, es decir, se procede a predecir el conjunto de entrenamiento. En la figura 14 se puede observar la gráfica de la predicción, donde los datos predichos están en azul; y los datos reales, en negro. Veamos que visualmente hay un relativo buen ajuste.
 
-![image](/images/figura12.png)
+![image](/images/figura14.png)
 
 **Figura 14**. Predicción del periodo entre los años 2012 y 2016. En azul se muestra la predicción, y en negro, los datos originales.
 
