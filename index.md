@@ -64,20 +64,22 @@ De acuerdo con James, Witten, Hastie y Tibshirani [3, p.427], en una serie de ti
 **Figura 3**. Función de autocorrelación donde el eje x representa el número de días de retraso (lags), y el eje *y*, el coeficiente de correlación; los picos corresponden a los días 1, 7, 14, 21 y 27, respectivamente.
 
 ![image](/images/figura4.png)
-Inscripción de vehículos por día del mes
+**Figura 4**. Inscripción de vehículos por día del mes
 
 
 ![image](/images/figura5.png)
-Inscripción de vehículos por día de la semana, donde 0 es el lunes; el 1, martes; el 2, miércoles; el 3, jueves; el 4, viernes; el 5, sábado; y el 6, domingo.
+**Figura 5**. Inscripción de vehículos por día de la semana, donde 0 es el lunes; el 1, martes; el 2, miércoles; el 3, jueves; el 4, viernes; el 5, sábado; y el 6, domingo.
 
 
 El anterior ejercicio también puede ser llevado a cabo tomando las unidades de vehículos inscritas de manera mensual; la figura 6 muestra la función de autocorrelación si se toma este enfoque. En esta se puede observar una clara tendencia estacional anual (línea fucsia), lo cual ratifica lo observado en la figura 2. En otras palabras, cada 12 meses la cantidad de vehículos inscritos en el RUNT tiene una intensidad relativamente similar, y este comportamiento se hace más evidente en el mes de diciembre, ya que en este mes es donde se realizan la mayor cantidad de inscripciones de vehículos (ver figura 7).
 
 
 ![image](/images/figura6.png)
-**Figura 4**. Función de autocorrelación donde el eje x representa el número de meses de retraso (lags), y el eje *y*, el coeficiente de correlación; el pico en fucsia representa el coeficiente de correlación para un retraso de 12 meses.
+**Figura 6**. Función de autocorrelación donde el eje x representa el número de meses de retraso (lags), y el eje *y*, el coeficiente de correlación; el pico en fucsia representa el coeficiente de correlación para un retraso de 12 meses.
 
 ![image](/images/figura7.png)
+
+**Figura 7**. Inscripción de vehículos por mes del año.
 
 **Creación de Variables Predictoras Derivadas**
 
@@ -89,10 +91,11 @@ A partir de la variable Fecha se crearon las siguientes variables derivadas:
 
 - **day_of_week**: Esta variable indica el día de la semana, en la cual el 0 es el lunes; el 1, martes; el 2, miércoles; el 3, jueves; el 4, viernes; el 5, sábado; y el 6, domingo. Esto se realiza con el fin de indicarle al modelo que los días sábado y domingo las inscripciones de vehículos suelen se bastante menores en relación con lo demás días de la semana (ver figura ).
 
-- **day_of_month**: corresponde al día del mes de la fecha correspondiente. Esta variable se toma con el fin de indicarle al modelo que los primeros días del mes, por ejemplo, se inscriben menos vehículos (ver figura 6).
+- **day_of_month**: corresponde al día del mes de la fecha correspondiente. Esta variable se toma con el fin de indicarle al modelo que los primeros días del mes, por ejemplo, se inscriben menos vehículos en promedio (ver figura 6).
 
-- **month_of_year**: Corresponde al mes del año de la fecha correspondiente.
-- **timestamp**: corresponde al número de segundos que han pasado desde el 1 de enero de 1970 a la media noche. Esta variable se crea con el fin de conservar el orden cronológico natural de las fechas.
+- **month_of_year**: Corresponde al mes del año de la fecha correspondiente. Esta variable se toma con el fin de indicarle al modelo que en el último mes del año se suelen realizar más inscripciones de vehículos en relación con los demás meses, y que en el mes de enero se suelen inscribir menos vehículos en relación con los demás meses. 
+
+- **timestamp**: corresponde al número de segundos que han pasado desde el 1 de enero de 1970 a la media noche. Esta variable se crea con el fin de conservar el orden cronológico natural de las fechas, lo cual le permite al modelo capturar la tendencia que se viene marcando históricamente a partir de los datos de entrenamiento.
 
 
 ## **Modelo de predicción**
@@ -111,17 +114,17 @@ El perceptron multicapa tiene 3 tipos de capas:
 
 ![image](/images/RedNeuronalArtificial.png)
 
-Figura 6. Perceptrón Multicapa [3].
+Figura 8. Perceptrón Multicapa [3].
 
 En este caso, el perceptrón multicapa se construyó con la siguiente arquitectura:
 
-- **Capa de entrada**: por medio de esta se ingresa la información de cada registro, y contiene **únicamente** las variables predictoras derivadas.
+- **Capa de entrada**: por medio de esta se ingresa la información de cada registro, y contiene **únicamente** las variables predictoras derivadas, por tanto, solo tiene 6 neuronas en la capa de entrada.
 
 - **Capas ocultas**: mediante un ejercicio de ensayo y error, se logró determinar que 3 capas ocultas mostraban un buen desempeño; las 3 capas tienen un tamaño de 64 neuronas cada una.
 
 - **Capa de salida**: Dado que solamente tenemos una variable respuesta (Unidades), únicamente se tiene una neurona de salida.
 
-- **Postprocesado**: dado que algunos valores predichos por la red neuronal llegan a ser negativos, estos deben ser llevados a cero, es decir, si un valor predicho por la red neuronal es menor a cero, este es cambiado por el valor cero. Esto se realiza ya que los valores negativos para el contexto de la variable respuesta no tienen sentido. 
+- **Postprocesado**: dado que algunos valores predichos por la red neuronal llegan a ser levemente menores a cero, estos deben ser llevados a cero, es decir, si un valor predicho por la red neuronal es menor a cero, este es cambiado por el valor cero. Esto se realiza ya que los valores negativos para el contexto de la variable respuesta no tienen sentido. 
 
 ## **Resultados**
 
@@ -134,58 +137,62 @@ A continuación, se presentan los resultados obtenidos al predecir el año 2017.
 
 ![image](/images/figura9.png)
 
-**Figura 7**. Predicción del año 2017. En el eje x se muestra la fecha, y en el eje *y*, las unidades de vehículos. El azul es la predicción de la serie, y el negro son los valores reales. 
+**Figura 9**. Predicción del año 2017. En el eje x se muestra la fecha, y en el eje *y*, las unidades de vehículos. El azul es la predicción de la serie, y el negro son los valores reales. 
  
 
 **Métricas para todo el 2017**
 
 Para evaluar la predicción del modelo, se utilizaron las siguientes métricas:
 
-- **RMSE**: el RMSE se calcula de acuerdo a la figura 9. Para esta métrica se obtuvo un valor de aproximadamente **361**, esto quiere decir que en promedio las predicciones se alejan del dato real en 361 unidades.
+- **RMSE**: el RMSE se calcula de acuerdo a la figura 9. Para esta métrica se obtuvo un valor de aproximadamente **219**, esto quiere decir que en promedio las predicciones se alejan del dato real en 219 unidades.
+
+![image](/images/figura10.png)
+
+**Figura 10**. Fórmula para calcular la raíz del error cuadrático medio (RMSE).
+
+- **R-cuadrado**: El coeficiente de determinación (R cuadrado) se calcula de acuerdo a la figura 10. Para esta métrica se obtuvo un valor de **83 %**, esto quiere decir que el 83 % de la variabilidad en los datos es explicada por la relación entre las variables predictoras y las Unidades de vehículos.
 
 ![image](/images/figura11.png)
 
-**Figura 9**. Fórmula para calcular la raíz del error cuadrático medio (RMSE).
-
-- **R-cuadrado**: El coeficiente de determinación (R cuadrado) se calcula de acuerdo a la figura 10. Para esta métrica se obtuvo un valor de **53 %**, esto quiere decir que el 53 % de la variabilidad en los datos es explicada por la relación entre el tiempo y las Unidades de vehículos.
-
-![image](/images/figura12.png)
-
-**Figura 10**. Fórmula para calcular el coeficiente de determinación (R cuadrado).
+**Figura 11**. Fórmula para calcular el coeficiente de determinación (R cuadrado).
 
 **Métricas para el primer semestre de 2017**
 
-- **RMSE**: Para esta métrica se obtuvo un valor de aproximadamente **344**.
+- **RMSE**: Para esta métrica se obtuvo un valor de aproximadamente **168**.
 
-- **R-cuadrado**: Para esta métrica se obtuvo un valor de **49 %**.
+- **R-cuadrado**: Para esta métrica se obtuvo un valor de **88 %**.
 
 ### Predicción del 2018
 
 Para predecir el 2018 se entrenó un modelo con los datos desde el 2012 hasta el 2017, es decir, todo el conjunto de datos. En la figura 11 se muestra en azul la predicción y en color negro, los datos originales.
 
+![image](/images/figura12.png)
+
+**Figura 12**. Predicción del año 2018. En azul se muestra la predicción, y en negro, los datos originales.
+
+Al realizar una inspección visual, podemos notar que históricamente, se presenta una leve tendencia lineal a la baja como lo muestra la figura 13, esta tendencia es correctamente capturada por el modelo, ya que la predicción (en azul) la conserva. Es importante aclarar que la línea mostrada en la figura 13 fue ajustada manual y arbitrariamente por el autor de este blog.
+
 ![image](/images/figura13.png)
 
-**Figura 11**. Predicción del año 2018. En azul se muestra la predicción, y en negro, los datos originales.
-
-Al realizar una inspección visual, podemos notar que históricamente, se presenta una leve tendencia lineal a la baja como lo muestra la figura 12, esta tendencia es correctamente capturada por el modelo, ya que la predicción (en azul) la conserva. Es importante aclarar que la línea mostrada en la figura 12 fue ajustada manual y arbitrariamente por el autor de este blog.
-
-![image](/images/figura14.png)
-
-**Figura 12**. Tendencia lineal a la baja del conjunto de datos y predicción.
+**Figura 13**. Tendencia lineal a la baja del conjunto de datos y predicción.
 
 ### Predicción del periodo 2012 hasta 2016
 
-Para la predicción de este periodo se utiliza el mismo modelo utilizado para la predicción del año 2017, es decir, se procede a predecir el conjunto de entrenamiento.
+Para la predicción de este periodo se utiliza el mismo modelo utilizado para la predicción del año 2017, es decir, se procede a predecir el conjunto de entrenamiento. En la figura 14 se puede observa la gráfica de la predicción, donde los datos predichos están en azul; y los datos reales, en negro. Veamos que visualmente hay un relativo buen ajuste.
+
+![image](/images/figura12.png)
+
+**Figura 12**. Predicción del periodo entre los años 2012 y 2016. En azul se muestra la predicción, y en negro, los datos originales.
 
 **Métricas**
 
-- **RMSE**: Para esta métrica se obtuvo un valor de aproximadamente **429**, esto quiere decir que en promedio las predicciones se alejan del dato real en 429 unidades.
+- **RMSE**: Para esta métrica se obtuvo un valor de aproximadamente **250**, esto quiere decir que en promedio las predicciones se alejan del dato real en 429 unidades.
 
-- **R-cuadrado**: Para esta métrica se obtuvo un valor de **40 %**, esto quiere decir que el 40 % de la variabilidad en los datos es explicada por la relación entre el tiempo y las unidades de vehículos.
+- **R-cuadrado**: Para esta métrica se obtuvo un valor de **79 %**, esto quiere decir que el 40 % de la variabilidad en los datos es explicada por la relación entre el tiempo y las unidades de vehículos.
 
 ## **Conclusiones**
 
-Durante este informe se presentó una serie de tiempo univariada; los datos históricos de esta serie permitieron crear nuevas variables predictoras derivadas a partir de un análisis de tendencias y comportamientos presentes en los datos; estas nuevas variables permitieron entrenar y ajustar un modelo para predecir diferentes periodos. De estas predicciones, se mostró que era posible alcanzar coeficientes de determinación (R-cuadrado) entre 79 % y 83 % que, del cual podemos decir que es relativamente alto, sin embargo, las variaciones aleatorias de los datos e incluso imprecisiones en la formulación del modelo pudieron haber afectado la precisión de este.
+Durante este informe se presentó una serie de tiempo univariada; los datos históricos de esta serie permitieron crear nuevas variables predictoras derivadas a partir de un análisis de tendencias y comportamientos presentes en los datos; estas nuevas variables permitieron entrenar y ajustar un modelo para predecir diferentes periodos. De estas predicciones, se mostró que era posible alcanzar coeficientes de determinación (R-cuadrado) entre 79 % y 88 % que, del cual podemos decir que es relativamente alto, sin embargo, las variaciones aleatorias de los datos e incluso imprecisiones en la formulación del modelo pudieron haber afectado la precisión de este.
 
 ## **Referencias**
 
